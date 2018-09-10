@@ -1,17 +1,20 @@
 # put your code here.
-test_file = open("twain.txt")
+test_file = open("test.txt")
 
 
-def counts_words(phrase):
-    word_count = {}
 
-    for line in test_file:
-        words = line.split()
+word_count = {}
 
-        for word in words:
-            word_count[word] = word_count.get(word, 0) + 1
+for line in test_file:
+    words = line.split()
 
-    for word in word_count.items():
-        print(f"{word[0]} {word[1]}")
+    for word in words:
+        word = word.lower().rstrip(",:.?")
 
-counts_words(test_file)
+        word_count[word] = word_count.get(word, 0) + 1
+
+
+
+for word in word_count.items():
+    print(f"{word[0]} {word[1]}")
+
